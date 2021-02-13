@@ -114,6 +114,8 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
+for_window [class="Gnome-calculator"] floating enable
+
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -189,6 +191,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh &
 bar {
 	mode hide
         status_command i3status
+
 }
 
 # Media volume controls
@@ -206,20 +209,22 @@ bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightnes
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
+bindsym XF86Mail exec google-chrome-stable "https://mail.google.com/mail/u/1/#inbox"
+bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86HomePage exec google-chrome-stable
+bindsym XF86Tools exec google-chrome-stable "https://www.youtube.com/"
+bindsym XF86Explorer exec thunar
+bindsym XF86Calculator exec gnome-calculator && floating toggle
+
 
 # execute always
-exec_always picom -b
-exec_always feh --bg-scale /home/naveen/Downloads/wallpaper/349867.jpg
-exec unclutter & # Make cursor disappear when not needed
+exec picom -b
+exec feh --bg-scale /home/naveen/Downloads/349867.jpg
 exec volumeicon
-exec xrandr --output eDP-1 --brightness 0.85
-exec_always devilspie -a
+exec xrandr --output eDP-1 --brightness 0.95
 exec alsactl restore
+exec blueman-applet
 
 
-# i3-gaps configuration
-gaps inner 9
